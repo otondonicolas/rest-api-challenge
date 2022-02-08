@@ -12,7 +12,8 @@ import java.util.List;
 @Component
 public class ProductAdapter implements Serializable {
 
-    private static final long serialVersionUID = 6649034392172031629L;
+
+    private static final long serialVersionUID = 4128031724514468736L;
 
     public List<ProductDTO> entityListToDtoList(List<ProductEntity> entityList) {
         List<ProductDTO> productsList = new ArrayList<>();
@@ -43,11 +44,20 @@ public class ProductAdapter implements Serializable {
                 .build();
     }
 
-    public ProductEntity dtoToEntity(ApiStoreRequestDto productDTO){
+    public ProductEntity requestDtoToEntity(ApiStoreRequestDto requestDto){
+        ProductEntity productEntity = new ProductEntity();
+        productEntity.setProductPrice(requestDto.getProductPrice());
+        productEntity.setProductItem(requestDto.getProductItem());
+        productEntity.setProductDescription(requestDto.getProductDescription());
+        productEntity.setCreatedAt(requestDto.getCreatedAt());
+        productEntity.setIsInStock(requestDto.getIsInStock());
+        return productEntity;
+    }
+    public ProductEntity dtoToEntity(ProductDTO productDTO){
         ProductEntity productEntity = new ProductEntity();
         productEntity.setProductPrice(productDTO.getProductPrice());
         productEntity.setProductItem(productDTO.getProductItem());
-        productEntity.setProductDescription(productEntity.getProductDescription());
+        productEntity.setProductDescription(productDTO.getProductDescription());
         productEntity.setCreatedAt(productDTO.getCreatedAt());
         productEntity.setIsInStock(productDTO.getIsInStock());
         return productEntity;
