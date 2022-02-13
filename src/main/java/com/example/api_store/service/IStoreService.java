@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface IStoreService {
     List<ProductDTO> findAllProducts();
-    ProductDTO findProductById(Long id) throws Exception;
-    Boolean deleteProductById(Long id) throws Exception;
-    Boolean createProduct(ApiStoreRequestDto apiStoreRequestDto) throws Exception;
+    ProductDTO findProductById(Long id);
+    Boolean deleteProductById(Long id);
+    Boolean createProduct(ApiStoreRequestDto apiStoreRequestDto);
     ProductDTO modifyProduct(Long id, String productItem, String productDescription, Integer productPrice, Date createdAt, Boolean isInStock);
 
 }

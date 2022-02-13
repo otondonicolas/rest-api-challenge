@@ -2,7 +2,7 @@ package com.example.api_store.controller;
 
 import com.example.api_store.model.dto.ApiStoreRequestDto;
 import com.example.api_store.model.dto.ProductDTO;
-import com.example.api_store.service.impl.StoreServiceImpl;
+import com.example.api_store.service.IStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,10 +15,10 @@ import java.util.List;
 public class StoreController {
 
 
-    private StoreServiceImpl storeService;
+    private IStoreService storeService;
 
     @Autowired
-    public StoreController(StoreServiceImpl storeService) {
+    public StoreController(IStoreService storeService) {
         this.storeService = storeService;
     }
 
